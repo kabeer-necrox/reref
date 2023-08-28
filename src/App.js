@@ -1,24 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import React,{useRef} from 'react';
+import React,{useState} from 'react';
 
 function App() {
+  let [val, setVal] = useState("")
+  let [item, setItem] = useState("")
 
-  let inputRef = useRef(null) 
 
-  function handleinput(){
-    inputRef.current.value= "100"
-    inputRef.current.focus()
-    console.log("yes it is working")
 
-  }
+  
   return (
     <div className="App">
      <h1>this is usseref</h1>
-     <input type='text' ref={inputRef}/>
+     <input type='text' value={val} onChange={(e)=>setVal(e.target.value)}/>
+     <input type='text' value={item} onChange={(e)=>setItem(e.target.value)}/>
     
 
-     <button onClick={handleinput}> handle input</button>
+  <h3> this is the item{val}</h3>
+  <h1> this is the value{item}</h1>
     </div>
   );
 }
